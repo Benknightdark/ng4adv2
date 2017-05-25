@@ -22,6 +22,7 @@ import { CardsComponent } from './cards/cards.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+
     AppRoutingModule
   ],
   providers: [],
