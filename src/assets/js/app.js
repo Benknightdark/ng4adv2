@@ -2865,8 +2865,8 @@
             // Form rules
             rules: {
                 accountName: {
-                    required: true,
-                    email: true
+                    required: false,
+                    email: false
                 }
             },
             submitHandler: function(/*form*/) {
@@ -2908,11 +2908,11 @@
             // Form rules
             rules: {
                 accountName: {
-                    required: true,
-                    email: true
+                    required: false,
+                    email: false
                 },
                 accountPassword: {
-                    required: true
+                    required: false
                 }
             },
             submitHandler: function(/*form*/) {
@@ -2951,8 +2951,8 @@
             // Form rules
             rules: {
                 accountName: {
-                    required: true,
-                    email: true
+                    required: false,
+                    email: false
                 }
             },
             submitHandler: function(/*form*/) {
@@ -2994,14 +2994,14 @@
             // Form rules
             rules: {
                 accountName: {
-                    required: true,
-                    email: true
+                    required: false,
+                    email: false
                 },
                 accountPassword: {
-                    required: true
+                    required: false
                 },
                 accountPasswordCheck: {
-                    required: true,
+                    required: false,
                     equalTo: '#account-password'
                 }
             },
