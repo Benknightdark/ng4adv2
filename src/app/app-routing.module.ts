@@ -4,13 +4,14 @@ import { LoginComponent } from "app/login/login.component";
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { LayoutComponent } from "app/layout/layout.component";
 import { CardsComponent } from "app/cards/cards.component";
+import { LoginGuard } from "app/guard/login.guard";
 
 const routes: Routes = [
   {path:"",component:LayoutComponent, children:[
-      {path:"",component:DashboardComponent},
-    {path:"dashboard",component:DashboardComponent},
-    {path:"cards",component:CardsComponent},
-    {path: 'charts', loadChildren: './charts/charts.module#ChartsModule'},
+      {path:"",component:DashboardComponent,canActivate:[LoginGuard]},
+    {path:"dashboard",component:DashboardComponent,canActivate:[LoginGuard]},
+    {path:"cards",component:CardsComponent,canActivate:[LoginGuard]},
+    {path: 'charts', loadChildren: './charts/charts.module#ChartsModule',canActivate:[LoginGuard]},
   ]
 
   },
