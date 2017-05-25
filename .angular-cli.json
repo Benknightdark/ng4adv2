@@ -8,6 +8,8 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
+        "dashboard.html",
+        "login.html",
         "assets",
         "favicon.ico"
       ],
