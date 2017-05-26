@@ -38,7 +38,7 @@ constructor(private LoginService: LoginService, private fb: FormBuilder,private 
 
   }
   hasUnsavedChanges() {
-        if (this.LoginForm.dirty &&!this.isLoginSucess )//!this.form.value.title&&!this.form.value.body
+        if (this.LoginForm.dirty &&!this.isLoginSucess )
             return true;
     }
 
