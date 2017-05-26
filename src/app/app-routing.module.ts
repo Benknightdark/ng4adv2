@@ -5,6 +5,8 @@ import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { LayoutComponent } from "app/layout/layout.component";
 import { CardsComponent } from "app/cards/cards.component";
 import { LoginGuard } from "app/guard/login.guard";
+import { ModelformComponent } from "app/modelform/modelform.component";
+import { TemplateformComponent } from "app/templateform/templateform.component";
 
 const routes: Routes = [
   {path:"",component:LayoutComponent, children:[
@@ -17,6 +19,12 @@ const routes: Routes = [
   },
   {
     path: 'login',component:LoginComponent
+  },
+   {
+    path: 'tform',component:TemplateformComponent
+  },
+   {
+    path: 'mform',component:ModelformComponent
   },
   {
   path: '**',
