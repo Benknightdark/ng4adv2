@@ -13,6 +13,7 @@ import { LoginGuard } from "app/guard/login.guard";
 import { LoginService } from "app/services/login.service";
 import { TemplateformComponent } from './templateform/templateform.component';
 import { ModelformComponent } from './modelform/modelform.component';
+import { EnsureLoginGuardGuard } from "app/guard/ensure-login-guard.guard";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { ModelformComponent } from './modelform/modelform.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [LoginGuard,LoginService],
+  providers: [LoginGuard,
+  EnsureLoginGuardGuard,
+  LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

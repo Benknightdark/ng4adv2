@@ -19,13 +19,14 @@ export class LoginService {
       .map((res: Response) => {
         const token = res.json() && res.json().token;
         if (token) {
-          localStorage.setItem('token', JSON.stringify({ username: LoginData.Username, token: token }));
+          //console.log(token)
+          localStorage.setItem('token', JSON.stringify({ username: LoginData.Username, token: res.json().token }));
           return true;
         } else {
           return false;
         }
-      }
-      )
+      })
+
   }
   Logout() {
     localStorage.removeItem('token');

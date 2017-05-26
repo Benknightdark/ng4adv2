@@ -7,6 +7,7 @@ import { CardsComponent } from "app/cards/cards.component";
 import { LoginGuard } from "app/guard/login.guard";
 import { ModelformComponent } from "app/modelform/modelform.component";
 import { TemplateformComponent } from "app/templateform/templateform.component";
+import { EnsureLoginGuardGuard } from "app/guard/ensure-login-guard.guard";
 
 const routes: Routes = [
   {path:"",component:LayoutComponent, children:[
@@ -18,7 +19,7 @@ const routes: Routes = [
 
   },
   {
-    path: 'login',component:LoginComponent
+    path: 'login',component:LoginComponent,canDeactivate:[EnsureLoginGuardGuard]
   },
    {
     path: 'tform',component:TemplateformComponent
