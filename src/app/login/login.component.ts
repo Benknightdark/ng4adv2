@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { LoginService } from "app/services/login.service";
 import { Router } from "@angular/router";
+import { PreventFormComponent } from "app/shared/preventmodel";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements PreventFormComponent {
 constructor(private LoginService: LoginService, private fb: FormBuilder,private router: Router) { }
   // tslint:disable-next-line:member-ordering
   LoginForm: FormGroup;
+  isLoginSucess:boolean;
   ngOnInit() {
     if (JSON.parse(localStorage.getItem('token')) ) {
          this.router.navigate(['/']);
@@ -27,6 +29,7 @@ constructor(private LoginService: LoginService, private fb: FormBuilder,private 
     this.LoginService.Login(this.LoginForm.value).subscribe(r => {
       console.log(r)
       if (r === true) {
+        this.isLoginSucess=r;
          this.router.navigate(['/']);
       }else {
         confirm('帳密錯誤')
@@ -34,5 +37,9 @@ constructor(private LoginService: LoginService, private fb: FormBuilder,private 
     });
 
   }
+  hasUnsavedChanges() {
+        if (this.LoginForm.dirty )//!this.form.value.title&&!this.form.value.body
+            return true;
+    }
 
 }

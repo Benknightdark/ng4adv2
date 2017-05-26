@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { LoginComponent } from "app/login/login.component";
-import { DashboardComponent } from "app/dashboard/dashboard.component";
-import { LayoutComponent } from "app/layout/layout.component";
-import { CardsComponent } from "app/cards/cards.component";
-import { LoginGuard } from "app/guard/login.guard";
-import { ModelformComponent } from "app/modelform/modelform.component";
-import { TemplateformComponent } from "app/templateform/templateform.component";
-import { EnsureLoginGuardGuard } from "app/guard/ensure-login-guard.guard";
-
+import { LoginComponent } from "./login/login.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { LayoutComponent } from "./layout/layout.component";
+import { CardsComponent } from "./cards/cards.component";
+import { LoginGuard } from "./guard/login.guard";
+import { ModelformComponent } from "./modelform/modelform.component";
+import { TemplateformComponent } from "./templateform/templateform.component";
+import { EnsureLoginGuardGuard } from "./guard/ensure-login-guard.guard";
+import { PreventGuard } from "./guard/prevent.guard";
 const routes: Routes = [
   {path:"",component:LayoutComponent, children:[
       {path:"",component:DashboardComponent,canActivate:[LoginGuard]},
@@ -19,7 +19,7 @@ const routes: Routes = [
 
   },
   {
-    path: 'login',component:LoginComponent,canDeactivate:[EnsureLoginGuardGuard]
+    path: 'login',component:LoginComponent,canDeactivate:[PreventGuard]
   },
    {
     path: 'tform',component:TemplateformComponent
