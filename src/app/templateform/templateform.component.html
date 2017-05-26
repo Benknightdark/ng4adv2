@@ -2,9 +2,7 @@
   <div class="page-container bg-blue-grey-900">
     <div class="container-full">
       <div class="container container-xs"><img src="assets/img/logo.png" class="mv-lg block-center img-responsive thumb64">
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate
-
-         id="user-login" action="" name="loginForm" novalidate="" class="card b0 form-validate">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate id="user-login" action="" name="loginForm" novalidate="" class="card b0 form-validate">
           <div class="card-offset pb0">
             <div class="card-offset-item text-right"><a href="signup.html" class="btn-raised btn btn-info btn-circle btn-lg"><em class="ion-person-add"></em></a></div>
             <div class="card-offset-item text-right hidden">
@@ -17,15 +15,14 @@
           <div class="card-body">
             <div class="mda-form-group float-label mda-input-group">
               <div class="mda-form-control">
-                <input type="email" name="accountName"  class="form-control"
-                ngModel required #mAccount="ngModel" >
+                <input type="email" name="accountName" class="form-control" ngModel required #mAccount="ngModel">
 
                 <div class="mda-form-control-line"> </div>
                 <label>name</label>
               </div><span class="mda-input-group-addon"><em class="ion-ios-email-outline icon-lg"></em></span>
-            <div *ngIf="f.touched&& mAccount.errors">
-              <pre>必須輸入值</pre>
-            </div>
+              <div *ngIf="f.touched&& mAccount.errors">
+                <pre>必須輸入值</pre>
+              </div>
             </div>
             <div class="mda-form-group float-label mda-input-group">
               <div class="mda-form-control">
@@ -40,6 +37,14 @@
               <input name="last" [ngModel]="mpassword.value">
             </div>
           </div>
+          <div ngModelGroup="group2" #group2="ngModelGroup">
+
+            <input name="title" ngModel required>
+            <input name="summary" ngModel minlength="20">
+            <input name="longdesc" ngModel maxlength="5">
+            <input name="mobile" ngModel pattern="\d{4}-\d{6}">
+          </div>
+
           <button type="submit" class="btn btn-primary btn-flat" [disabled]="!f.valid">Login</button>
         </form>
         <div class="text-center text-sm"><a href="recover.html" class="text-inherit">Forgot password?</a></div>
