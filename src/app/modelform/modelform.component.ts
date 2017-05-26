@@ -11,8 +11,6 @@ export class ModelformComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSubmit(f){
-    console.log(f)
-  }
+
 
 }
