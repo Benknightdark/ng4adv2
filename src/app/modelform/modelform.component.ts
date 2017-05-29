@@ -18,6 +18,8 @@ export class ModelformComponent implements OnInit {
     });
   }
   submit() {
+    console.log("aaa")
+    this.form.reset();
 
   }
   Add(){

@@ -6,17 +6,19 @@
       <div class="container container-xs"><img src="assets/img/logo.png" class="mv-lg block-center img-responsive thumb64">
         <form id="user-login" action="" name="loginForm" class="card b0 form-validate">
 
-          <form [formGroup]="form" novalidate>
+          <form [formGroup]="form" novalidate (submit)="submit()">
             <input type="text" formControlName="title">
             <div formArrayName="name">
-              <div  *ngFor="let item of form.controls?.name.controls;
+              <div *ngFor="let item of form.controls?.name.controls;
 let i=index">
-              <input type="text"  [formControlName]="i">
+                <input type="text" [formControlName]="i">
 
-               <button  (click)="Delete(i)">remove</button>
-</div>
+                <button (click)="Delete(i)">remove</button>
+              </div>
             </div>
             <button class="btn" (click)="Add()">add</button>
+                      <button type="submit" class="btn btn-primary btn-flat" >Login</button>
+
           </form>
           <pre>{{ form.value | json }}</pre>
           <div class="card-offset pb0">
