@@ -9,6 +9,7 @@ import { ModelformComponent } from "./modelform/modelform.component";
 import { TemplateformComponent } from "./templateform/templateform.component";
 import { EnsureLoginGuardGuard } from "./guard/ensure-login-guard.guard";
 import { PreventGuard } from "./guard/prevent.guard";
+import { LogintestComponent } from "app/logintest/logintest.component";
 const routes: Routes = [
   {path:"",component:LayoutComponent, children:[
       {path:"",component:DashboardComponent,canActivate:[LoginGuard]},
@@ -26,6 +27,9 @@ const routes: Routes = [
   },
    {
     path: 'mform',component:ModelformComponent
+  },
+  {
+    path: 'login2',component:LogintestComponent
   },
   {
   path: '**',
