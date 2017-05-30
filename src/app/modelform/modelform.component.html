@@ -9,7 +9,7 @@
           <form [formGroup]="form" novalidate (submit)="submit()">
             <input type="text" formControlName="title">
             <div formArrayName="name">
-              <div *ngFor="let item of form.controls?.name.controls;
+              <div *ngFor="let item of form['controls']['name']['controls'];
 let i=index">
                 <input type="text" [formControlName]="i">
 

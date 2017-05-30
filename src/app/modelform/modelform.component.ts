@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormArray } from "@angular/forms";
+import { FormGroup, Validators, FormBuilder, FormArray,FormControl } from "@angular/forms";
 @Component({
   selector: 'app-modelform',
   templateUrl: './modelform.component.html',
@@ -19,7 +19,7 @@ export class ModelformComponent implements OnInit {
   }
   submit() {
     console.log("aaa")
-    this.form.reset();
+   // this.form.reset();
 
   }
   Add(){
