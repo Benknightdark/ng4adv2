@@ -1,0 +1,7 @@
+<div *ngFor="let item of (this.articles|async) ;let i=index">
+  <ul>
+    <li>{{i}}</li>
+     <li><a href="item?.href">{{item?.href}}</a></li>
+  </ul>
+
+</div>

@@ -10,6 +10,7 @@ import { TemplateformComponent } from "./templateform/templateform.component";
 import { EnsureLoginGuardGuard } from "./guard/ensure-login-guard.guard";
 import { PreventGuard } from "./guard/prevent.guard";
 import { LogintestComponent } from "app/logintest/logintest.component";
+import { JsontestComponent } from "app/jsontest/jsontest.component";
 const routes: Routes = [
   {path:"",component:LayoutComponent, children:[
       {path:"",component:DashboardComponent,canActivate:[LoginGuard]},
@@ -30,6 +31,9 @@ const routes: Routes = [
   },
   {
     path: 'login2',component:LogintestComponent
+  },
+  {
+    path: 'jsontest',component:JsontestComponent
   },
   {
   path: '**',
