@@ -9,6 +9,9 @@ export class ModelformComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
   form: FormGroup
+  Formnames=[
+        this.fb.control('Will 1222', Validators.required),
+        this.fb.control('Will 23333', Validators.required)]
   ngOnInit() {
     this.form = this.fb.group({
       title: 'This is title',
@@ -16,6 +19,9 @@ export class ModelformComponent implements OnInit {
         this.fb.control('Will 1', Validators.required),
         this.fb.control('Will 2', Validators.required)])
     });
+    // const FormnamesFGs =this.Formnames.map(Formname => this.fb.group(Formname));
+  //   const FormnamesFormArray = this.fb.array(this.Formnames);
+    // this.form.setControl('name', FormnamesFormArray);
   }
   submit() {
     console.log("aaa")
