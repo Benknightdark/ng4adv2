@@ -17,6 +17,7 @@ import { EnsureLoginGuardGuard } from "app/guard/ensure-login-guard.guard";
 import { PreventGuard } from "app/guard/prevent.guard";
 import { LogintestComponent } from './logintest/logintest.component';
 import { JsontestComponent } from './jsontest/jsontest.component';
+import { ClassicComponent } from './forms/classic/classic.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { JsontestComponent } from './jsontest/jsontest.component';
     TemplateformComponent,
     ModelformComponent,
     LogintestComponent,
-    JsontestComponent
+    JsontestComponent,
+    ClassicComponent
   ],
   imports: [
     BrowserModule,

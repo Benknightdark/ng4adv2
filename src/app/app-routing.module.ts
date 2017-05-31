@@ -11,11 +11,13 @@ import { EnsureLoginGuardGuard } from "./guard/ensure-login-guard.guard";
 import { PreventGuard } from "./guard/prevent.guard";
 import { LogintestComponent } from "app/logintest/logintest.component";
 import { JsontestComponent } from "app/jsontest/jsontest.component";
+import { ClassicComponent } from "app/forms/classic/classic.component";
 const routes: Routes = [
   {path:"",component:LayoutComponent, children:[
-      {path:"",component:DashboardComponent,canActivate:[LoginGuard]},
+      {path:"",component:ClassicComponent,canActivate:[LoginGuard]},
     {path:"dashboard",component:DashboardComponent,canActivate:[LoginGuard]},
     {path:"cards",component:CardsComponent,canActivate:[LoginGuard]},
+     {path:"forms/classic",component:ClassicComponent,canActivate:[LoginGuard]},
     {path: 'charts', loadChildren: './charts/charts.module#ChartsModule',canActivate:[LoginGuard]},
   ]
 

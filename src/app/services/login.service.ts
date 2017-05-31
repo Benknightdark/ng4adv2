@@ -13,7 +13,7 @@ export class LoginService {
   // tslint:disable-next-line:member-ordering
   JSONoptions = new RequestOptions({ headers: new Headers({ 'Content-Type': 'application/json;charset=utf-8' }) });
   // tslint:disable-next-line:member-ordering
-  _url = 'http://172.20.250.210:88/api/token' //192.168.137.1:88
+  _url = 'http://192.168.137.1:88/api/token' //
   Login(LoginData): Observable<boolean> {
     return this.http.post(this._url, JSON.stringify(LoginData), this.JSONoptions)
       .map((res: Response) => {
