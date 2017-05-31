@@ -12,44 +12,48 @@ import { PreventGuard } from "./guard/prevent.guard";
 import { LogintestComponent } from "app/logintest/logintest.component";
 import { JsontestComponent } from "app/jsontest/jsontest.component";
 import { ClassicComponent } from "app/forms/classic/classic.component";
+import { Classic2Component } from "app/classic2/classic2.component";
 const routes: Routes = [
-  {path:"",component:LayoutComponent, children:[
-      {path:"",component:ClassicComponent,canActivate:[LoginGuard]},
-    {path:"dashboard",component:DashboardComponent,canActivate:[LoginGuard]},
-    {path:"cards",component:CardsComponent,canActivate:[LoginGuard]},
-     {path:"forms/classic",component:ClassicComponent,canActivate:[LoginGuard]},
-    {path: 'charts', loadChildren: './charts/charts.module#ChartsModule',canActivate:[LoginGuard]},
-  ]
+  {
+    path: "", component: LayoutComponent, children: [
+      { path: "", component: ClassicComponent, canActivate: [LoginGuard] },
+      { path: "dashboard", component: DashboardComponent, canActivate: [LoginGuard] },
+      { path: "cards", component: CardsComponent, canActivate: [LoginGuard] },
+      { path: "forms/classic", component: ClassicComponent, canActivate: [LoginGuard] },
+      { path: "forms/classic2", component: Classic2Component, canActivate: [LoginGuard] },
+
+      { path: 'charts', loadChildren: './charts/charts.module#ChartsModule', canActivate: [LoginGuard] },
+    ]
 
   },
   {
-    path: 'login',component:LoginComponent,canDeactivate:[PreventGuard]
-  },
-   {
-    path: 'tform',component:TemplateformComponent
-  },
-   {
-    path: 'mform',component:ModelformComponent
+    path: 'login', component: LoginComponent, canDeactivate: [PreventGuard]
   },
   {
-    path: 'login2',component:LogintestComponent
+    path: 'tform', component: TemplateformComponent
   },
   {
-    path: 'jsontest',component:JsontestComponent
+    path: 'mform', component: ModelformComponent
   },
   {
-  path: '**',
-  redirectTo: '/dashboard',
-  pathMatch: 'full'
-}
+    path: 'login2', component: LogintestComponent
+  },
+  {
+    path: 'jsontest', component: JsontestComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
-        useHash: false,
-        enableTracing: false,
-        preloadingStrategy: PreloadAllModules
-      })],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: false,
+    enableTracing: false,
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
