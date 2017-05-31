@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BlockComponent implements OnInit {
 
   constructor() { }
-
+title="fdsa";
   ngOnInit() {
   }
 
