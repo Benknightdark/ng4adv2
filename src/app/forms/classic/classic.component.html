@@ -4,20 +4,32 @@
     <p class="mb-lg">Standard Bootstrap form and input controls with customized UI variations</p>
     <div class="card">
       <div class="card-body">
-        <form method="get" action="/" class="form-horizontal" #f="ngForm">
-          <pre>{{f.value|json}}</pre>
+        <form method="get" action="/" class="form-horizontal" #f="ngForm"
+        (ngSubmit)="onSubmit(f)"
+        >
+        <pre>data={{data|json}}</pre>
+           <pre>
+
+                value = {{f.value|json}}
+                valid/invalid = {{f.valid}}/{{f.invalid}}
+                dirty/pristine = {{f.dirty}}/{{f.pristine}}
+                touched/untouched = {{f.touched}}/{{f.untouched}}
+                enabled/disabled = {{f.enabled}}/{{f.disabled}}
+                errors = {{f.errors|json}}
+                </pre>
           <fieldset>
             <div class="form-group" [class.has-error]="mtitle.invalid">
               <label class="col-sm-2 control-label">title</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control rounded" name="title" ngModel="abc" #mtitle="ngModel" required>
-                <pre>value = {{mtitle.value}}
-valid/invalid = {{mtitle.valid}}/{{mtitle.invalid}}
-dirty/pristine = {{mtitle.dirty}}/{{mtitle.pristine}}
-touched/untouched = {{mtitle.touched}}/{{mtitle.untouched}}
-enabled/disabled = {{mtitle.enabled}}/{{mtitle.disabled}}
-errors = {{mtitle.errors|json}}
-</pre>
+                <input type="text" class="form-control rounded" name="title" [(ngModel)]="data.title" #mtitle="ngModel" required>
+                <pre>
+                value = {{mtitle.value}}
+                valid/invalid = {{mtitle.valid}}/{{mtitle.invalid}}
+                dirty/pristine = {{mtitle.dirty}}/{{mtitle.pristine}}
+                touched/untouched = {{mtitle.touched}}/{{mtitle.untouched}}
+                enabled/disabled = {{mtitle.enabled}}/{{mtitle.disabled}}
+                errors = {{mtitle.errors|json}}
+                </pre>
                 <div *ngIf="mtitle.errors?.required">
                   <pre>欄位需要輸入值</pre>
                 </div>
@@ -31,14 +43,14 @@ errors = {{mtitle.errors|json}}
             <div class="form-group" [class.has-error]="mbody.invalid">
               <label class="col-sm-2 control-label">body</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="body" ngModel="bcd" #mbody="ngModel" required>
+                <input type="text" class="form-control" name="body" [(ngModel)]="data.body" #mbody="ngModel" required>
                 <pre>value = {{mbody.value}}
-valid/invalid = {{mbody.valid}}/{{mbody.invalid}}
-dirty/pristine = {{mbody.dirty}}/{{mbody.pristine}}
-touched/untouched = {{mbody.touched}}/{{mbody.untouched}}
-enabled/disabled = {{mbody.enabled}}/{{mbody.disabled}}
-errors = {{mbody.errors|json}}
-</pre>
+                valid/invalid = {{mbody.valid}}/{{mbody.invalid}}
+                dirty/pristine = {{mbody.dirty}}/{{mbody.pristine}}
+                touched/untouched = {{mbody.touched}}/{{mbody.untouched}}
+                enabled/disabled = {{mbody.enabled}}/{{mbody.disabled}}
+                errors = {{mbody.errors|json}}
+                </pre>
                 <div *ngIf="mbody.errors?.required">
 
                   <pre>欄位需要輸入值</pre>
@@ -430,6 +442,7 @@ errors = {{mbody.errors|json}}
               </div>
             </div>
           </fieldset>
+        <button type="submit">Submit</button>
         </form>
       </div>
     </div>

@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./classic.component.css']
 })
 export class ClassicComponent implements OnInit {
-
+data:any={}
   constructor() { }
 
   ngOnInit() {
+  }
+  onSubmit(f){
+    console.log(f)
   }
 
 }
