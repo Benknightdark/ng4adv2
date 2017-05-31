@@ -18,7 +18,7 @@ export class Classic2Component implements OnInit {
       title: ["", [Validators.required,forbiddenNameValidator]],
       body: ["", [Validators.required]],
       addresses: this.fb.array([
-           this.fb.control("address1"),
+           this.fb.control(""),
          // this.fb.control("address2")
          //this.fb.control("address1")
       ])
@@ -44,7 +44,6 @@ export class Classic2Component implements OnInit {
       "body": "body",
       "addresses": [
         "address123213",
-        "address123213123123"
       ]
     })
   }

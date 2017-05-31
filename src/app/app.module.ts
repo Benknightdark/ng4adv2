@@ -19,6 +19,7 @@ import { LogintestComponent } from './logintest/logintest.component';
 import { JsontestComponent } from './jsontest/jsontest.component';
 import { ClassicComponent } from './forms/classic/classic.component';
 import { Classic2Component } from "app/forms/classic2/classic2.component";
+import { BlockComponent } from './block/block.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { Classic2Component } from "app/forms/classic2/classic2.component";
     LogintestComponent,
     JsontestComponent,
     ClassicComponent,
-    Classic2Component
+    Classic2Component,
+    BlockComponent
   ],
   imports: [
     BrowserModule,
