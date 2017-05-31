@@ -18,6 +18,7 @@ import { PreventGuard } from "app/guard/prevent.guard";
 import { LogintestComponent } from './logintest/logintest.component';
 import { JsontestComponent } from './jsontest/jsontest.component';
 import { ClassicComponent } from './forms/classic/classic.component';
+import { Classic2Component } from './classic2/classic2.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ClassicComponent } from './forms/classic/classic.component';
     ModelformComponent,
     LogintestComponent,
     JsontestComponent,
-    ClassicComponent
+    ClassicComponent,
+    Classic2Component
   ],
   imports: [
     BrowserModule,

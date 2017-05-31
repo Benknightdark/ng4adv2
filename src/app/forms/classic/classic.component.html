@@ -4,12 +4,10 @@
     <p class="mb-lg">Standard Bootstrap form and input controls with customized UI variations</p>
     <div class="card">
       <div class="card-body">
-        <form method="get" action="/" class="form-horizontal" #f="ngForm"
-        (ngSubmit)="onSubmit(f)"
-        >
-        <pre>data={{data|json}}</pre>
-           <pre>
 
+        <form method="get" action="/" class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <pre>data={{data|json}}</pre>
+          <pre>
                 value = {{f.value|json}}
                 valid/invalid = {{f.valid}}/{{f.invalid}}
                 dirty/pristine = {{f.dirty}}/{{f.pristine}}
@@ -17,12 +15,14 @@
                 enabled/disabled = {{f.enabled}}/{{f.disabled}}
                 errors = {{f.errors|json}}
                 </pre>
-          <fieldset>
-            <div class="form-group" [class.has-error]="mtitle.invalid">
-              <label class="col-sm-2 control-label">title</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control rounded" name="title" [(ngModel)]="data.title" #mtitle="ngModel" required>
-                <pre>
+          <div ngModelGroup="group1" #group1="ngModelGroup">
+
+            <fieldset>
+              <div class="form-group" [class.has-error]="mtitle.invalid">
+                <label class="col-sm-2 control-label">title</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control rounded" name="title" [(ngModel)]="data.title" #mtitle="ngModel" required>
+                  <pre>
                 value = {{mtitle.value}}
                 valid/invalid = {{mtitle.valid}}/{{mtitle.invalid}}
                 dirty/pristine = {{mtitle.dirty}}/{{mtitle.pristine}}
@@ -30,34 +30,44 @@
                 enabled/disabled = {{mtitle.enabled}}/{{mtitle.disabled}}
                 errors = {{mtitle.errors|json}}
                 </pre>
-                <div *ngIf="mtitle.errors?.required">
-                  <pre>欄位需要輸入值</pre>
+                  <div *ngIf="mtitle.errors?.required">
+                    <pre>欄位需要輸入值</pre>
+                  </div>
                 </div>
+
+
               </div>
 
-
-            </div>
-
-          </fieldset>
-          <fieldset>
-            <div class="form-group" [class.has-error]="mbody.invalid">
-              <label class="col-sm-2 control-label">body</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" name="body" [(ngModel)]="data.body" #mbody="ngModel" required>
-                <pre>value = {{mbody.value}}
+            </fieldset>
+            <fieldset>
+              <div class="form-group" [class.has-error]="mbody.invalid">
+                <label class="col-sm-2 control-label">body</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="body" [(ngModel)]="data.body[0]" #mbody="ngModel" required>
+                  <pre>value = {{mbody.value}}
                 valid/invalid = {{mbody.valid}}/{{mbody.invalid}}
                 dirty/pristine = {{mbody.dirty}}/{{mbody.pristine}}
                 touched/untouched = {{mbody.touched}}/{{mbody.untouched}}
                 enabled/disabled = {{mbody.enabled}}/{{mbody.disabled}}
                 errors = {{mbody.errors|json}}
                 </pre>
-                <div *ngIf="mbody.errors?.required">
+                  <div *ngIf="mbody.errors?.required">
 
-                  <pre>欄位需要輸入值</pre>
+                    <pre>欄位需要輸入值</pre>
+                  </div>
                 </div>
               </div>
+            </fieldset>
+          </div>
+
+          <div ngModelGroup="group2" #group2="ngModelGroup">
+            <div *ngFor="let item of list ;let i=index">
+              {{list[i]}}
+              <input type="text" [name]="'list'+i" [(ngModel)]="list[i]" >
             </div>
-          </fieldset>
+                      <button (click)="AddNew()">click</button>
+          </div>
+
           <fieldset>
             <div class="form-group">
               <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
@@ -66,6 +76,7 @@
               </div>
             </div>
           </fieldset>
+
           <fieldset>
             <div class="form-group">
               <label class="col-sm-2 control-label">Password</label>
@@ -442,7 +453,7 @@
               </div>
             </div>
           </fieldset>
-        <button type="submit" [disabled]="!f.valid">Submit</button>
+          <button type="submit" [disabled]="!f.valid">Submit</button>
         </form>
       </div>
     </div>
