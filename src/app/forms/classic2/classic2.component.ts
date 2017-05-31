@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { Http } from "@angular/http";
 import { } from 'rxjs'
 import 'rxjs'
+import { forbiddenNameValidator } from "app/shared/customvalidator";
 @Component({
   selector: 'app-classic2',
   templateUrl: './classic2.component.html',
@@ -14,19 +15,19 @@ export class Classic2Component implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      title: ["", [Validators.required]],
+      title: ["", [Validators.required,forbiddenNameValidator]],
       body: ["", [Validators.required]],
       addresses: this.fb.array([
            this.fb.control("address1"),
-          this.fb.control("address2")
-        // this.fb.control("")
+         // this.fb.control("address2")
+         //this.fb.control("address1")
       ])
     })
     this.http.get("http://localhost:3000/forms")
       .map(res => res.json())
       .subscribe(data => {
-
-     //   this.form.reset(data[0])
+        console.log(data[0])
+        this.form.patchValue(data[0])
 
       })
 
@@ -36,5 +37,15 @@ export class Classic2Component implements OnInit {
     console.log("aa")
     const addresses = this.form.controls.addresses as FormArray
     addresses.push(this.fb.control("address" + (addresses.length + 1)));
+  }
+  SetData(){
+      this.form.setValue({
+      "title": "title",
+      "body": "body",
+      "addresses": [
+        "address123213",
+        "address123213123123"
+      ]
+    })
   }
 }
