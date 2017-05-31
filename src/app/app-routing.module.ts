@@ -12,7 +12,8 @@ import { PreventGuard } from "./guard/prevent.guard";
 import { LogintestComponent } from "app/logintest/logintest.component";
 import { JsontestComponent } from "app/jsontest/jsontest.component";
 import { ClassicComponent } from "app/forms/classic/classic.component";
-import { Classic2Component } from "app/classic2/classic2.component";
+import { Classic2Component } from "app/forms/classic2/classic2.component";
+
 const routes: Routes = [
   {
     path: "", component: LayoutComponent, children: [
