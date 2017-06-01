@@ -13,6 +13,7 @@ export class Classic2Component implements OnInit {
   form: FormGroup
   formdata
   showform: boolean;
+  keys
   constructor(private http: Http, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -28,17 +29,29 @@ export class Classic2Component implements OnInit {
           ),
           pets: new FormControl(),
           isBuy: new FormControl(),
-          habbits:this.fb.array(
-              //this.formdata.habbits.map(h => this.fb.control(h))
-          this.formdata.habbits.map(a=>this.fb.control(a))[0]
-
+          habbits:this.fb.group(
+              this.formdata.habbits.map(h => h)[0]
+        // this.formdata.habbits.map(a=>this.fb.control(a))[0]]
+          ),
+              habbit2:this.fb.group(
+                      {
+          "sleep":false,
+           "play":false,
+           "eat":false
+        }
+        // this.formdata.habbits.map(a=>this.fb.control(a))[0]]
           )
 
         })
         this.showform = true;
-              console.log(this.formdata.habbits.map(a=>this.fb.control(a))[0])
+        console.log({
+          "sleep":true,
+           "play":true,
+           "eat":true
+        })
+       this.keys= Object.keys( (this.form.get("habbits")as FormGroup).controls)
+
       })
-      console.log({  eat:false,play:false,sleep:false})
 
   }
   onAdd() {
@@ -46,13 +59,6 @@ export class Classic2Component implements OnInit {
     addresses.push(this.fb.control("address" + (addresses.length + 1)));
   }
   SetData() {
-    // this.form.setValue({
-    //   "title": "title",
-    //   "body": "body",
-    //   "addresses": [
-    //     "address123213",
-    //   ]
-    // })
     this.form.reset();
 
   }

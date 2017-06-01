@@ -16,7 +16,7 @@
       "isBuy": ["ngng", "gngn"],
       "habbits": [
         {
-          "sleep":true,
+          "sleep":false,
            "play":true,
            "eat":true
         }

@@ -52,8 +52,39 @@
                  <input  type="radio"    [value]="item"  formControlName="isBuy">{{item}}
               </label>
           </div>
+          <div formGroupName="habbit2">
+               <pre>Static show checkbox</pre>
+            <div class="checkbox">
+              <label>
+                  <input type="checkbox" value="" formControlName="sleep">
+                        sleep
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                   <input type="checkbox" value="" formControlName="eat">
+                      eat
+                </label>
+            </div>
+            <div class="checkbox">
 
+              <label>
+                  <input type="checkbox" value="" formControlName="play">
+                    play
+                </label>
+            </div>
+          </div>
+          <div formGroupName="habbits">
+                <pre>Dynmaic show checkbox</pre>
+            <div class="checkbox" *ngFor="let item of keys">
 
+              <label>
+                  <input type="checkbox" value="" [formControlName]="item">
+                        {{item}}
+              </label>
+            </div>
+
+          </div>
           <fieldset>
             <div class="form-group">
               <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
