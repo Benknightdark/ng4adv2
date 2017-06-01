@@ -47,20 +47,11 @@
                         [value]="p.id">{{p.name}}
                 </option>
           </select>
-
-
-            <div class="radio" *ngFor="let item of this.formdata.isBuy">
-
-              <label>
+          <div class="radio" *ngFor="let item of this.formdata.isBuy">
+            <label>
                  <input  type="radio"    [value]="item"  formControlName="isBuy">{{item}}
               </label>
-            </div>
-
-
-
-
-
-
+          </div>
           <fieldset>
             <div class="form-group">
               <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
