@@ -3,12 +3,10 @@ import { NG_VALIDATORS, AbstractControl, ValidatorFn, Validator, FormControl } f
 
 
 // validation function
-function validateJuriNameFactory() : ValidatorFn {
+function validateJuriNameFactory(): ValidatorFn {
   return (c: AbstractControl) => {
-
     let isValid = c.value === 'Juri';
-
-    if(isValid) {
+    if (isValid) {
       return null;
     } else {
       return {
@@ -17,11 +15,8 @@ function validateJuriNameFactory() : ValidatorFn {
         }
       };
     }
-
   }
 }
-
-
 @Directive({
   selector: '[juriName][ngModel]',
   providers: [

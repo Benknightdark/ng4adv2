@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from "@angular/forms";
 import { Http } from "@angular/http";
 import { } from 'rxjs'
 import 'rxjs'
@@ -26,15 +26,20 @@ export class Classic2Component implements OnInit {
                   addresses: this.fb.array(
                     this.formdata.addresses.map(addresses => (this.fb.control(addresses, [Validators.required])))
                   ),
-                  pets:this.fb.array(
-                    this.formdata.pets.map(pets => (this.fb.group(pets, [Validators.required])))
+                  pets:new FormControl()
+                  // this.fb.group(
+                  //   this.formdata.pets.map(pets => (this.fb.group(pets, [Validators.required])))
 
-                  )
+                  // )
+                  //this.fb.array(
+
+
+                //  )
                 })
+
                 this.showform = true;
-                 (this.form.controls.pets as FormArray ).valueChanges.subscribe(c =>
-                console.log(c)
-            );
+
+
               })
 
   }
