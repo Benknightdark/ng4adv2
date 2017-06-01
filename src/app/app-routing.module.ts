@@ -20,8 +20,8 @@ const routes: Routes = [
       { path: "", component: ClassicComponent, canActivate: [LoginGuard] },
       { path: "dashboard", component: DashboardComponent, canActivate: [LoginGuard] },
       { path: "cards", component: CardsComponent, canActivate: [LoginGuard] },
-      { path: "forms/classic", component: ClassicComponent, canActivate: [LoginGuard] },
-      { path: "forms/classic2", component: Classic2Component, canActivate: [LoginGuard] },
+      { path: "forms/classic", component: ClassicComponent },
+      { path: "forms/classic2", component: Classic2Component },
 
       { path: 'charts', loadChildren: './charts/charts.module#ChartsModule', canActivate: [LoginGuard] },
     ]

@@ -4,8 +4,9 @@
     <p class="mb-lg">Standard Bootstrap form and input controls with customized UI variations</p>
     <div class="card">
       <div class="card-body">
-        <pre>{{form.value|json}}</pre>
-        <form [formGroup]="form" class="form-horizontal">
+
+        <form [formGroup]="form" class="form-horizontal" *ngIf="showform">
+              <pre>{{form.value|json}}</pre>
           <fieldset>
             <div class="form-group">
               <label class="col-sm-2 control-label">title</label>
@@ -33,6 +34,7 @@
                   </div>
                 </div>
               </fieldset>
+
 
             </div>
             <button type="button" (click)="onAdd()">add </button>
