@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import {Observable} from 'rxjs';
 import 'rxjs'
+import { forbiddenNameValidator } from "app/shared/customvalidator";
+
 @Component({
   selector: 'app-classic',
   templateUrl: './classic.component.html',

@@ -2,9 +2,10 @@
   "forms": [{
       "title": "title",
       "body": "body",
-      "addresses": [
-        "address223",
-        "address22333"
+      "addresses": [],
+      "pets":[
+        {"id":1,"name":"dog"},
+      {"id":2,"name":"cat"}
       ]
     }
 

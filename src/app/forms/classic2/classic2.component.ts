@@ -19,29 +19,41 @@ export class Classic2Component implements OnInit {
     this.http.get("http://localhost:3000/forms")
               .map(res => res.json())
               .subscribe(data => {
-                console.log(data[0])
                 this.formdata = data[0]
                 this.form = this.fb.group({
                   title: [this.formdata.title, [Validators.required, forbiddenNameValidator]],
                   body: [this.formdata.body, [Validators.required]],
                   addresses: this.fb.array(
                     this.formdata.addresses.map(addresses => (this.fb.control(addresses, [Validators.required])))
+                  ),
+                  pets:this.fb.array(
+                    this.formdata.pets.map(pets => (this.fb.group(pets, [Validators.required])))
+
                   )
                 })
                 this.showform = true;
+                 (this.form.controls.pets as FormArray ).valueChanges.subscribe(c =>
+                console.log(c)
+            );
               })
+
   }
   onAdd() {
     const addresses = this.form.controls.addresses as FormArray
     addresses.push(this.fb.control("address" + (addresses.length + 1)));
   }
   SetData() {
-    this.form.setValue({
-      "title": "title",
-      "body": "body",
-      "addresses": [
-        "address123213",
-      ]
-    })
+    // this.form.setValue({
+    //   "title": "title",
+    //   "body": "body",
+    //   "addresses": [
+    //     "address123213",
+    //   ]
+    // })
+    this.form.reset();
+
+  }
+  submit(){
+    console.log(this.form)
   }
 }

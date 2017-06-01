@@ -5,8 +5,8 @@
     <div class="card">
       <div class="card-body">
 
-        <form [formGroup]="form" class="form-horizontal" *ngIf="showform">
-              <pre>{{form.value|json}}</pre>
+        <form [formGroup]="form" class="form-horizontal" *ngIf="showform" (ngSubmit)="submit()">
+          <pre>{{form.value|json}}</pre>
           <fieldset>
             <div class="form-group">
               <label class="col-sm-2 control-label">title</label>
@@ -34,13 +34,21 @@
                   </div>
                 </div>
               </fieldset>
-
-
             </div>
             <button type="button" (click)="onAdd()">add </button>
             <button type="button" (click)="SetData()">setdata</button>
-
+            <button>submit</button>
           </div>
+
+
+          <fieldset>
+            <div class="form-group" formArrayName="pets">
+              <select class="form-control">
+                          <option *ngFor="let item of form.controls.pets.controls;let i=index" [value]="item.controls.id.value" >{{item.controls.name.value}}</option>
+
+                        </select>
+            </div>
+          </fieldset>
 
           <fieldset>
             <div class="form-group">

@@ -20,6 +20,7 @@ import { JsontestComponent } from './jsontest/jsontest.component';
 import { ClassicComponent } from './forms/classic/classic.component';
 import { Classic2Component } from "app/forms/classic2/classic2.component";
 import { BlockComponent } from './block/block.component';
+import { JuriNameValidator } from "app/shared/templatecustomvalidator";
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { BlockComponent } from './block/block.component';
     JsontestComponent,
     ClassicComponent,
     Classic2Component,
-    BlockComponent
+    BlockComponent,
+    JuriNameValidator
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import { BlockComponent } from './block/block.component';
   ],
   providers: [LoginGuard,
   EnsureLoginGuardGuard,
+
   LoginService,PreventGuard],
   bootstrap: [AppComponent]
 })
