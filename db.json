@@ -13,7 +13,15 @@
         }
 
       ],
-      "isBuy":[true,false]
+      "isBuy": ["ngng", "gngn"],
+      "habbits": [
+        {
+          "sleep":true,
+           "play":true,
+           "eat":true
+        }
+
+      ]
     }
 
   ]

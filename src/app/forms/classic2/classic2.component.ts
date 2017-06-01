@@ -17,24 +17,29 @@ export class Classic2Component implements OnInit {
 
   ngOnInit() {
     this.http.get("http://localhost:3000/forms")
-              .map(res => res.json())
-              .subscribe(data => {
-                this.formdata = data[0]
-                this.form = this.fb.group({
-                  title: [this.formdata.title, [Validators.required, forbiddenNameValidator]],
-                  body: [this.formdata.body, [Validators.required]],
-                  addresses: this.fb.array(
-                    this.formdata.addresses.map(addresses => (this.fb.control(addresses, [Validators.required])))
-                  ),
-                  pets:new FormControl(),
-                  isBuy:new FormControl()
+      .map(res => res.json())
+      .subscribe(data => {
+        this.formdata = data[0]
+        this.form = this.fb.group({
+          title: [this.formdata.title, [Validators.required, forbiddenNameValidator]],
+          body: [this.formdata.body, [Validators.required]],
+          addresses: this.fb.array(
+            this.formdata.addresses.map(addresses => (this.fb.control(addresses, [Validators.required])))
+          ),
+          pets: new FormControl(),
+          isBuy: new FormControl(),
+          habbits:this.fb.array(
+              //this.formdata.habbits.map(h => this.fb.control(h))
+          this.formdata.habbits.map(a=>this.fb.control(a))[0]
 
-                  /*this.fb.array(
-                    this.formdata.isBuy.map(isBuy => (this.fb.control(isBuy)))
-                  )*/
-                })
-                this.showform = true;
-              })
+          )
+
+        })
+        this.showform = true;
+              console.log(this.formdata.habbits.map(a=>this.fb.control(a))[0])
+      })
+      console.log({  eat:false,play:false,sleep:false})
+
   }
   onAdd() {
     const addresses = this.form.controls.addresses as FormArray
@@ -51,7 +56,7 @@ export class Classic2Component implements OnInit {
     this.form.reset();
 
   }
-  submit(){
+  submit() {
     console.log(this.form)
   }
 }
