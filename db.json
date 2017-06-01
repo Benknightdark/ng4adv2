@@ -21,6 +21,20 @@
            "eat":true
         }
 
+      ],
+      "pets2": [{
+          "id": 1,
+          "name": "dog"
+        },
+        {
+          "id": 2,
+          "name": "cat"
+        },
+          {
+          "id": 3,
+          "name": "tigger"
+        }
+
       ]
     }
 

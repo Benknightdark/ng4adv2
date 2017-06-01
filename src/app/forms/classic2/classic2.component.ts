@@ -28,6 +28,7 @@ export class Classic2Component implements OnInit {
             this.formdata.addresses.map(addresses => (this.fb.control(addresses, [Validators.required])))
           ),
           pets: new FormControl(),
+          pets2:new FormControl(),
           isBuy: new FormControl(),
           habbits:this.fb.group(
               this.formdata.habbits.map(h => h)[0]
@@ -64,5 +65,8 @@ export class Classic2Component implements OnInit {
   }
   submit() {
     console.log(this.form)
+  }
+  ReturnFormGroup(ControlName:string){
+   return  Object.keys( (this.form.get(ControlName)as FormGroup).controls)
   }
 }

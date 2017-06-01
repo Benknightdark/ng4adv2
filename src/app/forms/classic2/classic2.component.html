@@ -40,10 +40,17 @@
             <button type="button" (click)="SetData()">setdata</button>
             <button>submit</button>
           </div>
-
+          <pre>drill down list</pre>
           <select class="form-control" formControlName="pets">
                 <option value="">" "</option>
                 <option *ngFor="let p of this.formdata.pets"
+                        [value]="p.id">{{p.name}}
+                </option>
+          </select>
+          <pre>multi drill down list</pre>
+          <select class="form-control" formControlName="pets2" multiple="">
+                <option value="">" "</option>
+                <option *ngFor="let p of this.formdata.pets2"
                         [value]="p.id">{{p.name}}
                 </option>
           </select>
@@ -53,7 +60,7 @@
               </label>
           </div>
           <div formGroupName="habbit2">
-               <pre>Static show checkbox</pre>
+            <pre>Static show checkbox</pre>
             <div class="checkbox">
               <label>
                   <input type="checkbox" value="" formControlName="sleep">
@@ -75,8 +82,8 @@
             </div>
           </div>
           <div formGroupName="habbits">
-                <pre>Dynmaic show checkbox</pre>
-            <div class="checkbox" *ngFor="let item of keys">
+            <pre>Dynmaic show checkbox</pre>
+            <div class="checkbox" *ngFor="let item of ReturnFormGroup('habbits')">
 
               <label>
                   <input type="checkbox" value="" [formControlName]="item">
