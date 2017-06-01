@@ -17,19 +17,19 @@ export class Classic2Component implements OnInit {
 
   ngOnInit() {
     this.http.get("http://localhost:3000/forms")
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log(data[0])
-        this.formdata = data[0]
-        this.form = this.fb.group({
-          title: [this.formdata.title, [Validators.required, forbiddenNameValidator]],
-          body: [this.formdata.body, [Validators.required]],
-          addresses: this.fb.array(
-          this.formdata.addresses.map(addresses => (this.fb.control(addresses)))
-          )
-        })
-        this.showform = true;
-      })
+              .map(res => res.json())
+              .subscribe(data => {
+                console.log(data[0])
+                this.formdata = data[0]
+                this.form = this.fb.group({
+                  title: [this.formdata.title, [Validators.required, forbiddenNameValidator]],
+                  body: [this.formdata.body, [Validators.required]],
+                  addresses: this.fb.array(
+                    this.formdata.addresses.map(addresses => (this.fb.control(addresses, [Validators.required])))
+                  )
+                })
+                this.showform = true;
+              })
   }
   onAdd() {
     const addresses = this.form.controls.addresses as FormArray
