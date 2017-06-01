@@ -3,12 +3,17 @@
       "title": "title",
       "body": "body",
       "addresses": [],
-      "pets":[
-      //  {"id":1,"name":"dog"},
-     // {"id":2,"name":"cat"}
-     "dog",
-     "cat"
-      ]
+      "pets": [{
+          "id": 1,
+          "name": "dog"
+        },
+        {
+          "id": 2,
+          "name": "cat"
+        }
+
+      ],
+      "isBuy":[true,false]
     }
 
   ]

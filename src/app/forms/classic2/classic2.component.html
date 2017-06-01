@@ -25,7 +25,7 @@
             </div>
           </fieldset>
 
-         <div formArrayName="addresses">
+          <div formArrayName="addresses">
             <div *ngFor="let item of form.controls.addresses.controls;let i=index">
               <fieldset>
                 <div class="form-group">
@@ -41,28 +41,22 @@
             <button>submit</button>
           </div>
 
-<select class="form-control"
-            formControlName="pets">
-      <option value="">" "</option>
-      <option *ngFor="let p of this.formdata.pets"
-              [value]="p.id">{{p.name}}
-      </option>
-    </select>
-       <!--   <div formArrayName="addresses">
-            <div *ngFor="let item of form.controls.addresses.controls;let i=index">
-              <fieldset>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">address{{i+1}}</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" [formControlName]="i">
-                  </div>
-                </div>
-              </fieldset>
+          <select class="form-control" formControlName="pets">
+                <option value="">" "</option>
+                <option *ngFor="let p of this.formdata.pets"
+                        [value]="p.id">{{p.name}}
+                </option>
+          </select>
+
+
+            <div class="radio" *ngFor="let item of this.formdata.isBuy">
+
+              <label>
+                 <input  type="radio"    [value]="item"  formControlName="isBuy">{{item}}
+              </label>
             </div>
-            <button type="button" (click)="onAdd()">add </button>
-            <button type="button" (click)="SetData()">setdata</button>
-            <button>submit</button>
-          </div>-->
+
+
 
 
 

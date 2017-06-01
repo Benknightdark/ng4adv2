@@ -26,22 +26,15 @@ export class Classic2Component implements OnInit {
                   addresses: this.fb.array(
                     this.formdata.addresses.map(addresses => (this.fb.control(addresses, [Validators.required])))
                   ),
-                  pets:new FormControl()
-                  // this.fb.group(
-                  //   this.formdata.pets.map(pets => (this.fb.group(pets, [Validators.required])))
+                  pets:new FormControl(),
+                  isBuy:new FormControl()
 
-                  // )
-                  //this.fb.array(
-
-
-                //  )
+                  /*this.fb.array(
+                    this.formdata.isBuy.map(isBuy => (this.fb.control(isBuy)))
+                  )*/
                 })
-
                 this.showform = true;
-
-
               })
-
   }
   onAdd() {
     const addresses = this.form.controls.addresses as FormArray
