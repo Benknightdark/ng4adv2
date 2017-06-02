@@ -77,11 +77,15 @@
           </div>
 
 
-          <select name="selectedpets" class="form-control" [(ngModel)]="data.selectedpets" #misBuy="ngModel">
+          <select name="selectedpets" class="form-control" [(ngModel)]="data.selectedpets" #mselectedpets="ngModel">
                 <option value=""></option>
                  <option *ngFor="let item of data.pets2 ;let i=index" [value]="item.id" >{{item.name}}</option>
            </select>
 
+          <select multiple="" name="selectedpetsarray" class="form-control" [(ngModel)]="data.selectedpetsarray" #mselectedpets="ngModel">
+                <option value=""></option>
+                 <option *ngFor="let item of data.pets2 ;let i=index" [value]="item.id" >{{item.name}}</option>
+           </select>
 
           <fieldset>
             <div class="form-group">
