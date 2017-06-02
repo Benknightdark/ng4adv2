@@ -21,14 +21,14 @@ export class ClassicComponent implements OnInit {
       console.log(d[0])
         this.data=d[0];
         this.showform=true;
-        console.log(this.data.habbits[0][1])
+        console.log(this.data.habbits[0])
     })
   }
   AddNew() {
     this.data.list.push( this.data.list.length + 1)
   }
-  ReturnObjectKeys(){
-   return Object.keys(this.data.habbits[0])
+  ReturnObjectKeys(name:string){
+   return Object.keys(this.data[name][0])
   }
   onSubmit(f) {
     // if (f.value.group1) {

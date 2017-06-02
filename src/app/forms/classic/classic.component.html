@@ -88,7 +88,7 @@
            </select>
 
           <div ngModelGroup="habbitsgroup" #habbitsgroup="ngModelGroup">
-            <div class="checkbox c-checkbox" *ngFor="let item of ReturnObjectKeys() ;let i=index" >
+            <div class="checkbox c-checkbox" *ngFor="let item of ReturnObjectKeys('habbits') ;let i=index" >
               <label>
                             <input type="checkbox"   [name]="item"  [(ngModel)]="this.data.habbits[0][item]">
                             <span class="ion-checkmark-round">
