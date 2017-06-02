@@ -22,6 +22,7 @@ export class ClassicComponent implements OnInit {
         this.data=d[0];
         this.showform=true;
         console.log(this.data.habbits[0])
+        console.log(this.data.isBuy)
     })
   }
   AddNew() {
