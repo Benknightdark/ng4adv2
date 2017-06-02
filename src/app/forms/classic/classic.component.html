@@ -87,6 +87,16 @@
                  <option *ngFor="let item of data.pets2 ;let i=index" [value]="item.id" >{{item.name}}</option>
            </select>
 
+          <div ngModelGroup="habbitsgroup" #habbitsgroup="ngModelGroup">
+            <div class="checkbox c-checkbox" *ngFor="let item of ReturnObjectKeys() ;let i=index" >
+              <label>
+                            <input type="checkbox"   [name]="item"  [(ngModel)]="this.data.habbits[0][item]">
+                            <span class="ion-checkmark-round">
+                              </span>{{item}}
+              </label>
+            </div>
+          </div>
+
           <fieldset>
             <div class="form-group">
               <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
