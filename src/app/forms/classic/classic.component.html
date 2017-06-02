@@ -5,7 +5,7 @@
     <div class="card">
       <div class="card-body">
 
-        <form method="get" action="/" class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <form method="get" action="/" class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="showform">
           <pre>data={{data|json}}</pre>
           <pre>
                 value = {{f.value|json}}
@@ -21,10 +21,7 @@
               <div class="form-group" [class.has-error]="mtitle.invalid">
                 <label class="col-sm-2 control-label">title</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control rounded"
-                  name="title" [(ngModel)]="data.title" #mtitle="ngModel" required
-                  juriName
-                  >
+                  <input type="text" class="form-control rounded" name="title" [(ngModel)]="data.title" #mtitle="ngModel" required juriName>
                   <pre>
                 value = {{mtitle.value}}
                 valid/invalid = {{mtitle.valid}}/{{mtitle.invalid}}
@@ -36,7 +33,7 @@
                   <div *ngIf="mtitle.errors?.required">
                     <pre>欄位需要輸入值</pre>
                   </div>
-                   <div *ngIf="mtitle.errors?.juriName">
+                  <div *ngIf="mtitle.errors?.juriName">
                     <pre>juriName入值</pre>
                   </div>
                 </div>
@@ -49,7 +46,7 @@
               <div class="form-group" [class.has-error]="mbody.invalid">
                 <label class="col-sm-2 control-label">body</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="body" [(ngModel)]="data.body[0]" #mbody="ngModel" required>
+                  <input type="text" class="form-control" name="body" [(ngModel)]="data.body" #mbody="ngModel" required>
                   <pre>value = {{mbody.value}}
                 valid/invalid = {{mbody.valid}}/{{mbody.invalid}}
                 dirty/pristine = {{mbody.dirty}}/{{mbody.pristine}}
@@ -67,11 +64,11 @@
           </div>
 
           <div ngModelGroup="group2" #group2="ngModelGroup">
-            <div *ngFor="let item of list ;let i=index">
-              {{list[i]}}
-              <input type="text" [name]="'list'+i" [(ngModel)]="list[i]" >
+            <div *ngFor="let item of data.list ;let i=index">
+              {{data.list[i]}}
+              <input type="text" [name]="'list'+i" [(ngModel)]="data.list[i]">
             </div>
-                      <button (click)="AddNew()" type="button">click</button>
+            <button (click)="AddNew()" type="button">click</button>
           </div>
 
           <fieldset>
