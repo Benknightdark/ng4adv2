@@ -30,14 +30,15 @@
                 enabled/disabled = {{mtitle.enabled}}/{{mtitle.disabled}}
                 errors = {{mtitle.errors|json}}
                 </pre>
-                  <div *ngIf="mtitle.errors?.required">
-                    <pre>欄位需要輸入值</pre>
-                  </div>
-                  <div *ngIf="mtitle.errors?.juriName">
-                    <pre>juriName入值</pre>
+                  <div *ngIf="mtitle.touched">
+                    <div *ngIf="mtitle.errors?.required">
+                      <pre>欄位需要輸入值</pre>
+                    </div>
+                    <div *ngIf="mtitle.errors?.juriName">
+                      <pre>juriName入值</pre>
+                    </div>
                   </div>
                 </div>
-
 
               </div>
 
@@ -53,13 +54,17 @@
                 touched/untouched = {{mbody.touched}}/{{mbody.untouched}}
                 enabled/disabled = {{mbody.enabled}}/{{mbody.disabled}}
                 errors = {{mbody.errors|json}}
-                </pre>
-                  <div *ngIf="mbody.errors?.required">
 
-                    <pre>欄位需要輸入值</pre>
+                </pre>
+                  <div *ngIf="mbody.touched">
+                    <div *ngIf="mbody.errors?.required">
+
+                      <pre>欄位需要輸入值</pre>
+                    </div>
                   </div>
                 </div>
               </div>
+
             </fieldset>
           </div>
 
@@ -70,6 +75,13 @@
             </div>
             <button (click)="AddNew()" type="button">click</button>
           </div>
+
+
+          <select name="selectedpets" class="form-control" [(ngModel)]="data.selectedpets" #misBuy="ngModel">
+                <option value=""></option>
+                 <option *ngFor="let item of data.pets2 ;let i=index" [value]="item.id" >{{item.name}}</option>
+           </select>
+
 
           <fieldset>
             <div class="form-group">

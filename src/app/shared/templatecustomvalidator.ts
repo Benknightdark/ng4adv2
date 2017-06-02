@@ -1,19 +1,18 @@
 import { Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, AbstractControl, ValidatorFn, Validator, FormControl } from '@angular/forms';
 
-
-// validation function
 function validateJuriNameFactory(): ValidatorFn {
-  return (c: AbstractControl) => {
-    let isValid = c.value === 'Juri';
-    if (isValid) {
-      return null;
-    } else {
-      return {
+  return (control: AbstractControl) => {
+    let isValid = (control.value as string) ;
+    if (isValid!=null&&isValid.indexOf("Juri")==-1) {
+          return {
         juriName: {
           valid: false
         }
       };
+
+    } else {
+  return null;
     }
   }
 }
